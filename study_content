@@ -144,12 +144,39 @@
   33.1 RANK           -> 1,2,2,4,5,5,7
   33.2 DENSERANK      -> 1,2,2,3,4,4,5
   33.3 ROW_NUMBER     -> 1,2,3,4,5,6,7
+  33.4 ROWNUM         -> 인덱스 번호 포함 (컬럼에서사용) SELECT 절에서 사용하여 FROM에서 순서 적용 후 사용해야함
 
 34. 위치
-  34.1 
+  34.1 UNBOUNDED PRECEDING  위쪽 끝행
+  34.2 UNBOINDED FOLLOWING  아래쪽 끝행
+  34.3 CURRENTROW 현재행
+  34.4 n(숫자) PRECEDING    현재행에서 위로 n만큼 범위
+  34.5 n(숫자) FOLLOWING    현재행에서 아래로 N만큼 범위
 
+35.
+  LAG(컬럼명, 숫자)  -> 숫자만큼 위에 컬럼을 표출
+  LEAD(컬럼명, 숫자)  -> 숫자만큼 아래 컬럼을 표출
 
+36. RATIO-TO-REPORT  -> 파티션별 합계에서 차지하는 비율
+    PERCENT_RANK     -> 맨위를 0 맨아래를 1로 놓고 현재행이 위치하는 백분위 순위 값
+    CUME-DIST        -> 해당 파티션에서 갯수 누적 백준율 표출
+    NTILE(n)         -> 주어진 수만큼 행들을 N등분 한 후 행에 해당하는 등급을 반환 (딱안맞을 경우 맨 앞에서부터 숫자 채워짐)
 
+37. SELECT LEVEL,
+           SYS_CONNECT_BY_PATH('CT' || 'CN' ,'-') AS PATH
+       FROM 테이블명
+ START WITH ~~~~ IS NULL
+ CONNECT BY PRIOR ~~~~ = ~~~~
+
+  ->> 대 > 대중 > 대중 > 대중소 > 대중소 > 대중소
+  -->>> CONNECT_BY_ROOT -> 루트노트의 주어진컬럼 반환
+  -->>> CONNECT_BY_ISLEAF -> 가장 하위면 (LEAF) 1, 그외에는 0
+
+38. DML - INSERT, UPDATE, DELETE , MERGE
+    TCL - 원자성, 일관성, 고립성, 지속성
+        - COMMIT, ROLLBACK, SAVE POINT
+    DDL - CREATE, ALTER, DROP, RENAME, TRUNCATE
+    DCL - GRANT, REVOKE, (ROLLUSER)
 
 
 
