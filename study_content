@@ -72,7 +72,7 @@
 14. 반정규화 기법
   : 중복컬럼 추가 , 파생컬럼추가, 이력테이블 컬럼추가, 중복 관계 추가
 
---------------------------------SQL 기본및 활용
+-------------------------------- SQL 기본및 활용 --------------------------------
 15. LTRIM, RTRIM (문자열, [문자열]) 
   -> 2번 문자열 중 한글자라도 같지 않을 때까지 없애준다. 
 
@@ -107,6 +107,46 @@
 25. NATURAL JOIN -> (교집합) 모든 컬럼이 같을 경우에만 표출, USING 절을 이용해 조건을 건다 (컬럼명, 컬럼명) ->> 컬럼명이 같은 경우 
 26. CROSS JOIN -> 모든 경우의 수를 나타낸다. 
 
+-------------------------------- SQL 활용 --------------------------------
+27. 
+        SELECT 스칼라 서브쿼리 -> 하나의 값만 반환
+          FROM 인라인 뷰 -     -> 특징없음 그냥테이블
+ WHERE, HAVING 중첩서브쿼리 
+
+28. UNION ALL 중복행 그대로 다시 표출( 합집합)
+
+29. UNION 중복행은 하나로 표출
+
+30. INTERSECT 교집합
+
+31. MINUS/EXCEPT 차지합
+
+32. 그룹, 합계
+  ROLLUP -> GROUP BY ROLLUP( A, B)
+  ROLLUP(a)           -> a, total
+  ROLLUP(a,b)         -> ab, a , total
+  ROLLUP(a,b,c)       -> abc, ab, a, total
+  ROLLUP(a,(b,c))     -> abc, a, total
+
+  CUBE
+  CUBE(A)              -> a, total
+  CUBE(a,b)            -> ab,a,b, total
+  CUBE(a,b,c)          -> abc,ab,ac,bc,a,b,c,total
+
+  GROUPING SETS
+  GROUPING SETS(A,B)           -> a, b
+  GROUPING SETS(A,B,())        -> a,b, total
+  GROUPING SETS(A,ROLLUP(B))    -> a,b,total
+  GROUPING SETS(A,ROLLUP(B,C))  -> A,BC,B,total
+  GROUPING SETS(A,B,ROLLUP(C)   -> A,B,C,total
+
+33. 랭킹
+  33.1 RANK           -> 1,2,2,4,5,5,7
+  33.2 DENSERANK      -> 1,2,2,3,4,4,5
+  33.3 ROW_NUMBER     -> 1,2,3,4,5,6,7
+
+34. 위치
+  34.1 
 
 
 
