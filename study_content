@@ -175,11 +175,22 @@
 38. DML - INSERT, UPDATE, DELETE , MERGE
     TCL - 원자성, 일관성, 고립성, 지속성
         - COMMIT, ROLLBACK, SAVE POINT
-    DDL - CREATE, ALTER, DROP, RENAME, TRUNCATE
+    DDL - CREATE, ALTER, DROP, RENAME, TRUNCATE, MODIFY 
     DCL - GRANT, REVOKE, (ROLLUSER)
 
+39. FROM - WHERE - GROUP BY - HAVING - SELECT - ORDER BY
 
+40. distint deptno, mgr 은 두개다 적용이 된다.
 
+41. as -> select , as생략가능, 띄어 쓰기
+       -> from   as 사용 불가
 
+42. concat -> + sqlServer
+           -> -|| ORACLE
 
+43. between a and b 는  a<= b<=
+
+44. rownum(oracle), top(sqlServer), 
+
+45. ORACLE에서는 null은 오름차순일경우  맨마지막으로 나오고 SQLSERVER에서는 null은 오름차순일 경우 맨 처음으로 나온다.
 
